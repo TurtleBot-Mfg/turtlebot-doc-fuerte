@@ -1,0 +1,10 @@
+
+[Desktop Entry]
+Version=1.0
+Type=Link
+Name=Startup Guide
+Comment=Getting started guide for the TurtleBot
+URL=file:///usr/share/doc/turtlebot/index.html
+Icon=/usr/share/doc/turtlebot/turtlebot-doc.svg
+X-Ubuntu-Gettext-Domain=turtlebot-doc
+

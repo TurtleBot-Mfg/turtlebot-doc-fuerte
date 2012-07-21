@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>Getting Started</title>
+<body>
+<style type="text/css">
+<!--
+body {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  position: 0,0;
+  background-image: url(turtle-doc-header.png);
+  background-repeat: no-repeat;
+  font-family: "Ubuntu", sans-serif;
+}
+h1 {
+font-family: "Ubuntu", sans-serif;
+font-weight: bold;
+font-size: 36pt;
+text-align: center;
+}
+div {
+  margin:0;
+  padding:20px;
+  border:0;
+  outline:0;
+}
+p {
+font-family: "LiberationSans", sans-serif;
+}
+-->
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>TurtleBot Startup Guide</h1>
+</div>
+<br>
+<div>
+<h2>Hello fellow roboticist,</h2>
+<p>
+<blockquote>
+Welcome to the TurtleBot Quick Start Guide.<br>
+This guide has a few tips and tricks for working with the TurtleBot and links to several online resource.
+</blockquote>
+
+Thanks,<br>
+TurtleBot Development Team
+</p>
+<br>
+<h2>Quick Start</h2>
+<h3>Step 1: Setup network</h3>
+<p>
+<img src="wificonf.png" width="182" height="247"/>
+<br/>
+The TurtleBot is preconfigured to start ROS and all of the minimum required services for basic operation at bootup. The primary requirement for getting your TurtleBot running is that is needs to be connected to a network so that you can operate it remotely. You can use the Network Manager in the upper right corner of your screen to connect to a WiFi, Ethernet or cellular network. Once connected, the startup scripts will autodetect the current network interface and start ROS. Once a network configuration is setup, the laptop can be closed and placed in the TurtleBot.
+</p>
+<h3>Step 2: Run Demos</h3>
+<p>
+Once the network is setup the robot can run several demos include <a href="http://www.ros.org/wiki/turtlebot_teleop/Tutorials/Teleoperation">Teleoperation</a> and <a href="http://www.ros.org/wiki/turtlebot_follower/Tutorials/Demo">People Following</a>. We suggest starting with these demos to gather experimental data on the robot's performance.
+</p>
+<br>
+</div>
+<div>
+<h2>Software Notes</h2>
+<h3>Teleoperation</h3>
+<p>
+The TurtleBot laptop is configured to start ssh at bootup to allow for remote access to the robot and to use the local command line interface to ROS. While the TurtleBot laptop provides on-board processing power, an additional laptop or desktop can be used as a workstation to interact with the robot. Workstations that have ROS installed will be able to connect to the robot once they have been <a href="http://www.ros.org/wiki/Robots/TurtleBot/Network%20Setup#Workstation_Setup">configured</a>. Alternativly, the TurtleBot may be <a href="http://www.ros.org/wiki/turtlebot/Tutorials/AndroidControl">teleoperated via an Android</a> based cellphone or tablet.
+</p>
+<h3>turtlebot_dashboard</h3>
+<p>
+The <a href="http://www.ros.org/wiki/turtlebot_dashboard">TurtleBot Dashboard</a> provides a wide range of diagnostic information, including the current battery levels for the robot base and the laptop and the state of the power breakers. This GUI can be run locally on the robot or on a workstation that has been configured to use the TurtleBot as the ROS Master.
+</p>
+<h3>turtlebot-config</h3>
+<p>
+Out of the box, your TurtleBot should be able to run basic demos. However, if your TurtleBot comes with an arm or you are having trouble with your robot recognizing the laptop battery, or have added additional sensors or accessories that provide a serial interface, your robot may be confused and may need autoconfiguration. The turtlebot-config autoconfiguration tool helps identify hardware and generate startup scripts without the hassle of editing udev rules. The first time turtlebot-config is run it will generate the config files in /etc/ros automatically, if you want to re-run the script you must remove the /etc/ros directory or manually copy the files from /tmp/turtlebot-config. The default config files can be found in /etc/ros-fuerte.
+</p>
+<h3>turtlebot_calibration</h3>
+<p>
+TurtleBots equipped with a gyro can use the <a href="http://www.ros.org/wiki/turtlebot_calibration">turtlebot_calibration</a> package to achieve the best odometry. If your robot has a gyro that is has a maximum yaw rate that is not 250&deg;/sec, you will need to set the gyro_measurement_range parameter in the launch file before attempting calibration. See this <a href="https://kforge.ros.org/turtlebot/trac/ticket/111">ticket</a> or this <a href="http://answers.ros.org/question/12446/turtlebot-slam-map-building-problems/">question</a> on ROS Answers for more information.
+</p>
+<h3>turtlebot_arm</h3>
+<p>
+The <a href="http://www.ros.org/wiki/turtlebot_arm">turtlebot_arm</a> package provides support for manipulation with the TurtleBot Arm. This arm can be used with <a href="http://www.ros.org/wiki/turtlebot_arm_interactive_markers/Tutorials/UsingArmInteractiveMarkers">rviz and interactive markers</a> for visualizing teleoperation tasks.
+</p>
+</div>
+<div>
+<h2>Hardware Notes</h2>
+<h3>Charging - Create</h3>
+<p>
+When Turtlebots are charging, their power indicator lights fades on and off, it the light is not fading in and out your robot is not charging. If you have trouble charging the robot, we suggest disconnecting power to the Create, removing the serial connection and turning the Create off before reconnecting the charger. As the indicator light may turn off when the Create is on, we suggest turning the Create back on before turning it off to make sure the Create is actually off.
+<p>
+<h3>Kinect Power</h3>
+<p> 
+The iRobot Create is limited to providing 1.5 Amps at 12 Volts via the power connector. Due to this limitation, the Kinect power output must be disabled for the robot to charge. Otherwise, devices such as a Kinect can discharge the battery faster than it can able to charge which may damage the battery. To prevent this, the power output is disabled in software by default and must be enabled to operate the Kinect. More information can be found <a href="http://www.ros.org/wiki/turtlebot_dashboard">here</a> or by looking at the <a href="/opt/ros/fuerte/stacks/turtlebot/turtlebot_bringup/kinect.launch">kinect.launch</a> file in the turtlebot_bringup package.
+</p>
+</div>
+<div>
+<h2>Online Resources</h2>
+<p>
+Here are a selection of useful resources for working with the TurtleBot
+<ul>
+<li><a href="http://www.ros.org/wiki/ROS/Tutorials">ROS Tutorials</A>
+<li><a href="http://www.ros.org/wiki/Robots/TurtleBot">TurtleBot Wiki</a>
+<li><a href="http://turtlebot.com/build/">TurtleBot Hardware Docs</a>
+<li><a href="http://answers.ros.org">ROS Answers - Q&A support system</a>
+<li><a href="https://kforge.ros.org/turtlebot/trac">TurtleBot Bug Tracker</a>
+<li><a href="http://www.thingiverse.com/tag:TurtleBot">3D Printable TurtleBot Accessories</a>
+<li><a href="https://code.ros.org/mailman/listinfo/ros-users">ros-users mailing list</a>
+<li><a href="https://kforge.ros.org/mailman/listinfo/turtlebot-users">turtlebot-users mailing list</a>
+</ul>
+</p>
+</div>
+</body>
+</html>

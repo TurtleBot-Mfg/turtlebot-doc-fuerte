@@ -1,0 +1,15 @@
+Source: turtlebot-doc-fuerte
+Section: science
+Priority: optional
+Maintainer: I Heart Engineering <code@iheartengineering.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: turtlebot-doc-fuerte
+Architecture: any
+Provides: turtlebot-doc-fuerte
+Conflicts: 
+Replaces:
+Depends: ${misc:Depends}
+Description: TurtleBot Documentation
+ This package provides a basic quickstart guide and a list of links to online resources.
