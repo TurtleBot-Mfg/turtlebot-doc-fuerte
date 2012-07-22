@@ -1,3 +1,9 @@
+turtlebot-doc-fuerte (0.0.3) precise; urgency=low
+
+  * Lintian fixes
+
+ -- I Heart Engineering <code@iheartengineering.com>  Sun, 22 Jul 2012 03:08:40 -0400
+
 turtlebot-doc-fuerte (0.0.2) precise; urgency=low
 
   * Build-Depends for cdbs and fixed rules to ignore .git files
