@@ -1,3 +1,10 @@
+turtlebot-doc-fuerte (0.0.2) precise; urgency=low
+
+  * Build-Depends for cdbs and fixed rules to ignore .git files
+  * Minor HTML formatting change, changed link name, placed link on destop of all users.
+
+ -- I Heart Engineering <code@iheartengineering.com>  Sat, 21 Jul 2012 21:21:03 -0400
+
 turtlebot-doc-fuerte (0.0.1) UNRELEASED; urgency=low
 
   * Adding quick start guide
