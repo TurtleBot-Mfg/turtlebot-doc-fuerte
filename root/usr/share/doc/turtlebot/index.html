@@ -13,6 +13,7 @@ body {
   background-image: url(turtle-doc-header.png);
   background-repeat: no-repeat;
   font-family: "Ubuntu", sans-serif;
+  font-size: 18pt;
 }
 h1 {
 font-family: "Ubuntu", sans-serif;
@@ -44,8 +45,10 @@ font-family: "LiberationSans", sans-serif;
 <h2>Hello fellow roboticist,</h2>
 <p>
 <blockquote>
+<p>
 Welcome to the TurtleBot Quick Start Guide.<br>
 This guide has a few tips and tricks for working with the TurtleBot and links to several online resource.
+</P>
 </blockquote>
 
 Thanks,<br>
@@ -55,21 +58,31 @@ TurtleBot Development Team
 <h2>Quick Start</h2>
 <h3>Step 1: Setup network</h3>
 <p>
-<img src="wificonf.png" width="182" height="247"/>
+<div><center><img src="wificonf.png" width="182" height="247"/></center></div>
 <br/>
+<p>
 The TurtleBot is preconfigured to start ROS and all of the minimum required services for basic operation at bootup. The primary requirement for getting your TurtleBot running is that is needs to be connected to a network so that you can operate it remotely. You can use the Network Manager in the upper right corner of your screen to connect to a WiFi, Ethernet or cellular network. Once connected, the startup scripts will autodetect the current network interface and start ROS. Once a network configuration is setup, the laptop can be closed and placed in the TurtleBot.
 </p>
 <h3>Step 2: Run Demos</h3>
 <p>
 Once the network is setup the robot can run several demos include <a href="http://www.ros.org/wiki/turtlebot_teleop/Tutorials/Teleoperation">Teleoperation</a> and <a href="http://www.ros.org/wiki/turtlebot_follower/Tutorials/Demo">People Following</a>. We suggest starting with these demos to gather experimental data on the robot's performance.
 </p>
-<br>
 </div>
 <div>
 <h2>Software Notes</h2>
+<div><center><img src="ros-launcher.png"> &nbsp; <img src="turtlebot-launcher.png"></center></div>
+<h3>Unity Support</h3>
+<p>
+Several tools have been added for improved support in Ubuntu's new Unity interface. Right clicking on the launcher icons will bring up a list of secondary tools that can be launched. Provisional notification support has been added via rosmetalaunch and the launch files stored in /etc/ros/launch.d where an example launch file has been provided. The rosmetalaunch tool is automatically started via upstart after the main TurtleBot node has been launched and will attempt to launch all launch files defined in /etc/ros/launch.d/*.launch in sequential order with a short pause in-between.
+</p>
 <h3>Teleoperation</h3>
 <p>
 The TurtleBot laptop is configured to start ssh at bootup to allow for remote access to the robot and to use the local command line interface to ROS. While the TurtleBot laptop provides on-board processing power, an additional laptop or desktop can be used as a workstation to interact with the robot. Workstations that have ROS installed will be able to connect to the robot once they have been <a href="http://www.ros.org/wiki/Robots/TurtleBot/Network%20Setup#Workstation_Setup">configured</a>. Alternativly, the TurtleBot may be <a href="http://www.ros.org/wiki/turtlebot/Tutorials/AndroidControl">teleoperated via an Android</a> based cellphone or tablet.
+</p>
+<div><center><img src="ros-network-id-qt.png"> &nbsp; <img src="ros-network-id-terminal.png"></center><br/></div>
+<h3>Network Identification</h3>
+<p>
+The ros-network-id tool will generate a custom QR code that you can use with an Android application to manage the TurtleBot from your cellphone or tablet. Please be aware that the default operation of the tool attempts to encode the wifi ssid and password into the QR code, so please make sure not to video or photograph the codes in the background. The tool can also be run over a terminal via ssh.
 </p>
 <h3>turtlebot_dashboard</h3>
 <p>
